@@ -97,8 +97,8 @@ SPLITTER = QSplitter(Qt.Horizontal)
 MAIN_LAYOUT.addWidget(SPLITTER, 1)
                     #┃														   ┃
                     #┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-#┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-#┃	[COMPONENT CARD]									   ┃
+                    #┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                    #┃	[COMPONENT CARD]									   ┃
 class ComponentCard(QFrame):
     #┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
     #┃														   ┃
@@ -167,8 +167,8 @@ class ComponentCard(QFrame):
         """
         base = QUrl.fromLocalFile(self.comp["folder"] + "/")
         self.web.setHtml(full_html, base)
-#┃														   ┃
-#┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                    #┃														   ┃
+                    #┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     #┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
                     #┃	[LEFT PANEL]										   ┃
 SIDEBAR = QListWidget()
@@ -188,7 +188,9 @@ SPLITTER.addWidget(SIDEBAR)
 def on_search(text):
     category = SIDEBAR.currentItem().text() if SIDEBAR.currentItem() else "ALL"
     populate_components(text, category)
-
+                    #┃														   ┃
+                    #┣━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━┫
+                    #┃														   ┃
 def on_category_change(item):
     populate_components(SEARCH.text(), item.text())
 
@@ -244,6 +246,9 @@ def load_components_from_disk():
         })
 
     return components
+                    #┃														   ┃
+                    #┣━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━┫
+                    #┃														   ┃
 ALL_COMPONENTS = load_components_from_disk()
                     #┃														   ┃
                     #┣━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━━ ━┫
